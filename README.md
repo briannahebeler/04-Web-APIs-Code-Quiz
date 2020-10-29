@@ -12,6 +12,6 @@ After the game is over the user will be prompted to enter their initials to save
 
 
 ## Screenshot
-https://briannahebeler.github.io/Homework04-Web-APIs-Code-Quiz/
 
 ## Link
+https://briannahebeler.github.io/Homework04-Web-APIs-Code-Quiz/
