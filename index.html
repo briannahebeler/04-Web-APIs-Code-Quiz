@@ -47,18 +47,25 @@
         <!-- Quiz Box-->
         <div id="quiz-box" style="display: none;">
             <div id="questions"></div>
-            <div id="choices"></div>
-                <button id="a" onclick="checkAnswer('a')" class="mc-bottons"></button>
-                <button id="b" onclick="checkAnswer('b')" class="mc-bottons"></button>
-                <button id="c" onclick="checkAnswer('c')" class="mc-bottons"></button>
-                <button id="d" onclick="checkAnswer('d')" class="mc-bottons"></button>
+            <div id="choices">
+                <button id="a" class="mc-bottons"></button>
+                <button id="b" class="mc-bottons"></button>
+                <button id="c" class="mc-bottons"></button>
+                <button id="d" class="mc-bottons"></button>
+            </div>
+            <div id="quiz-nav=btns">
+                <button id="back" class="nav-bottons" style="clear: both; display: block;">Back</button>
+                <button id="next" class="nav-bottons" style="clear: both; display: block;">Next</button>
+                <button id="submit-quiz" class="nav-bottons" style="display: none;">Submit</button>
+            </div>
         </div>
         <!-- Add initials box -->
         <div id="initials-box" style="display: none;">
             <div id="your-score"></div>
                 <div id="initials">Enter Initials:</div>
                 <input id="enter-initials" type="text" placeholder="Enter your initials">
-                <button id="submit-initials" onclick="saveInitials()">Submit</button>
+                <br>
+                <button id="submit-initials" style="clear: both;">Submit</button>
         </div>
     </div>
 
