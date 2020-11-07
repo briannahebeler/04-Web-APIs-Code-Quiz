@@ -1,19 +1,34 @@
 var questions = [
     { q: "This will be the first question?", 
-    mc:["a", "b", "c", "d"],
-    a: "d"},
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    correctAnswer: "d"},
     { q: "This will be the second question?", 
-    mc:["a", "b", "c", "d"],
-    a: "a"},
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    correctAnswer: "a"},
     { q: "This will be the third question?",
-    mc:["a", "b", "c", "d"],
-    a: "b"},
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    correctAnswer: "b"},
     { q: "This will be the fourth question?",
-    mc:["a", "b", "c", "d"],
-    a: "b"},
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    correctAnswer: "b"},
     { q: "This will be the fifth question?",
-    mc:["a", "b", "c", "d"],
-    a: "c"},
+    a: "",
+    b: "",
+    c: "",
+    d: "",
+    correctAnswer: "c"},
 ];
 
 // variables from index.html
@@ -50,6 +65,13 @@ var goBackBtn = document.querySelector("#go-back");
 // this variable sets the timer to 100 seconds - giving 20 seconds per question
 var secondsLeft = 100;
 
+//current question that will display
+var currentQuestion = 0;
+//keep track of score
+var score = 0;
+//count number of answers inputed
+var counter = 0;
+
 function setTime() {
     // setting function to decrease the seconds while displaying to user how many seconds are left
     var timerInterval = setInterval(function() {
@@ -79,8 +101,11 @@ function showQuizBox() {
 }
 
 function startQuiz () {
-    // var currentQuestion = 0;
-    // var score = 0;
+
+    if (currentQuestion === questions.length) {
+        currentQuestion = 0;
+
+    }
 
     // function displayCurrentQuestion(question) {
     //     for (var i = 0; i < questions.length; i++) {
@@ -90,6 +115,16 @@ function startQuiz () {
     // }
 
     // displayCurrentQuestion(0);
+}
+
+// i will use this function to check user answer to actual answer
+function checkAnswer(answer) {
+    if(answer === questions.q.correctAnswer) {
+        counter++;
+        score+=100;
+        console.log(counter);
+        console.log(score);
+    }
 }
 
 //this function will display initial box
@@ -107,6 +142,8 @@ function showInitialBox () {
 startBtn.addEventListener("click", setTime);
 //quiz box will display when press start button
 startBtn.addEventListener("click", showQuizBox);
+//this will start the quiz when the start button is pressed
+startBtn.addEventListener("click", startQuiz);
 //when press submit quiz button it will display initial box
 submitQuizBtn.addEventListener("click", showInitialBox)
 // ====================================================
