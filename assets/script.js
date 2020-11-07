@@ -101,11 +101,6 @@ function showInitialBox () {
     } 
 }
 
-// this function will bring the user to highscores page
-function showHighScores() {
-
-}
-
 // EVENT LISTENERS
 // ====================================================
 //timer will start when press start button
@@ -114,6 +109,4 @@ startBtn.addEventListener("click", setTime);
 startBtn.addEventListener("click", showQuizBox);
 //when press submit quiz button it will display initial box
 submitQuizBtn.addEventListener("click", showInitialBox)
-//when press initial submit button it will show high score page
-initialSubmitButton.addEventListener("click", showHighScores);
 // ====================================================

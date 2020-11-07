@@ -36,16 +36,16 @@
     </header>
 
     <div class="container">
-        <div id="jumbotron" class="jumbotron text-center" style="margin-top: 20px; clear: both; display: block;">
+        <section id="jumbotron" class="jumbotron text-center" style="margin-top: 20px; clear: both; display: block;">
             <h1 class="display-4">Coding Quiz Challenge</h1>
             <p class="lead" style="padding-bottom: 20px;">Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio amet minus officiis nemo, unde porro ex itaque? Blanditiis nihil fugiat enim alias, explicabo est necessitatibus iusto quisquam earum, molestiae laborum!</p>
             <hr class="my-4">
             <button id="start-btn" type="button" class="btn btn-success" style="margin-top: 40px;">
                 Start Quiz!
             </button>
-        </div>
-        <!-- Quiz Box-->
-        <div id="quiz-box" style="display: none;">
+        </section>
+        <!-- Quiz Box Section-->
+        <section id="quiz-box" style="display: none;">
             <div id="questions"></div>
             <div id="choices">
                 <button id="a" class="mc-bottons"></button>
@@ -54,19 +54,21 @@
                 <button id="d" class="mc-bottons"></button>
             </div>
             <div id="quiz-nav=btns">
-                <button id="back" class="nav-bottons" style="clear: both; display: block;">Back</button>
-                <button id="next" class="nav-bottons" style="clear: both; display: block;">Next</button>
-                <button id="submit-quiz" class="nav-bottons" style="display: none;">Submit</button>
+                <button id="back" type="button" class="nav-buttons" style="clear: both; display: block;">Back</button>
+                <button id="next" type="button" class="nav-buttons" style="clear: both; display: block;">Next</button>
+                <button id="submit-quiz" type="button" class="nav-buttons" style="display: none;">Submit</button>
             </div>
-        </div>
-        <!-- Add initials box -->
-        <div id="initials-box" style="display: none;">
+        </section>
+        <!-- Add initials box Section -->
+        <section id="initials-box" style="display: none;">
             <div id="your-score"></div>
                 <div id="initials">Enter Initials:</div>
                 <input id="enter-initials" type="text" placeholder="Enter your initials">
                 <br>
-                <button id="submit-initials" style="clear: both;">Submit</button>
-        </div>
+                <button id="submit-initials" type="button" style="clear: both;">
+                    <a href="highscores.html" style="color:white">Submit</a>
+                </button>
+        </section>
     </div>
 
     <footer>
