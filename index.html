@@ -5,21 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
+
+    <!-- links to bootstrap, fontawesome, & css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/style.css">
+
+    <!-- title of webpage -->
     <title>Code Quiz</title>
 </head>
 
 <body>
+
     <header>
+        <!-- in the header we will store the navbar with link to highscores page & timer -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- creating Highscore button -->
             <a class="navbar-brand" id="highscore" href="./highscores.html">Highscore</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- creating timer to show in navbar -->
             <div class="collapse navbar-collapse" id="navbarText">
                 <div class="navbar-nav ml-auto">
                     <span class="navbar-text" id="timer"></span>
@@ -29,23 +36,27 @@
     </header>
 
     <div id="quiz" class="container">
-            <div class="jumbotron text-center" style="margin-top: 20px;">
-                <h1 class="display-4">Coding Quiz Challenge</h1>
-                <p class="lead" style="padding-bottom: 20px;">Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio amet minus officiis nemo, unde porro ex itaque? Blanditiis nihil fugiat enim alias, explicabo est necessitatibus iusto quisquam earum, molestiae laborum!</p>
-                <hr class="my-4">
-                <button id="start-btn" type="button" class="btn btn-success" style="margin-top: 40px;">
-                    Start Quiz!
-                </button>
-            </div>
+        <div class="jumbotron text-center" style="margin-top: 20px;">
+            <h1 class="display-4">Coding Quiz Challenge</h1>
+            <p class="lead" style="padding-bottom: 20px;">Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio amet minus officiis nemo, unde porro ex itaque? Blanditiis nihil fugiat enim alias, explicabo est necessitatibus iusto quisquam earum, molestiae laborum!</p>
+            <hr class="my-4">
+            <button id="start-btn" type="button" class="btn btn-success" style="margin-top: 40px;">
+                Start Quiz!
+            </button>
+        </div>
     </div>
 
     <!-- <div id="submit"></div>
     <div id="results"></div> -->
 
-    <script src="./assets/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer>
+        <!-- links to script page, jquery, & bootstrap -->
+        <script src="./assets/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </footer>
+
 </body>
 
 </html>
