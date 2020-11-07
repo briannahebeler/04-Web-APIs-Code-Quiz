@@ -35,8 +35,8 @@
         </nav>
     </header>
 
-    <div id="quiz" class="container">
-        <div class="jumbotron text-center" style="margin-top: 20px;">
+    <div class="container">
+        <div class="jumbotron text-center" style="margin-top: 20px; clear: both; display: block;">
             <h1 class="display-4">Coding Quiz Challenge</h1>
             <p class="lead" style="padding-bottom: 20px;">Instructions: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio amet minus officiis nemo, unde porro ex itaque? Blanditiis nihil fugiat enim alias, explicabo est necessitatibus iusto quisquam earum, molestiae laborum!</p>
             <hr class="my-4">
@@ -44,10 +44,23 @@
                 Start Quiz!
             </button>
         </div>
+        <!-- Quiz -->
+        <div id="quiz" style="display: none;">
+            <div id="questions"></div>
+            <div id="choices"></div>
+                <button id="a" onclick="checkAnswer('a')" class="mc-bottons"></button>
+                <button id="b" onclick="checkAnswer('b')" class="mc-bottons"></button>
+                <button id="c" onclick="checkAnswer('c')" class="mc-bottons"></button>
+                <button id="d" onclick="checkAnswer('d')" class="mc-bottons"></button>
+        </div>
+        <!-- Add initials -->
+        <div id="initials" style="display: none;">
+            <div id="your-score"></div>
+                <div id="initials">Enter Initials:</div>
+                <input id="enter-initials" type="text" placeholder="Enter your initials">
+                <button id="submit-initials" onclick="saveInitials()">Submit</button>
+        </div>
     </div>
-
-    <!-- <div id="submit"></div>
-    <div id="results"></div> -->
 
     <footer>
         <!-- links to script page, jquery, & bootstrap -->
