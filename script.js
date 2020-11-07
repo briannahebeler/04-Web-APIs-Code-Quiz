@@ -27,6 +27,11 @@ var quizContainer = document.getElementById("quiz");
 var submitButton = document.getElementById("submit");
 var highScoresContainer = document.getElementById("results");
 
+// function showQuiz() {
+//     window.open("quiz.html")
+// }
+
+// startBtn.addEventListener("click", showQuiz);
 
 function setTime() {
     // setting function to decrease the seconds while displaying to user how many seconds are left
