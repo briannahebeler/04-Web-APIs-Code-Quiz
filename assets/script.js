@@ -16,22 +16,31 @@ var questions = [
     a: "choice 3"},
 ];
 
+// variables from index.html
+var timer = document.querySelector("#timer");
+var jumbo = document.querySelector("#jumbotron");
+var startBtn = document.querySelector("#start-btn");
+var quizBox = document.getElementById("quiz-box");
+var choiceA = document.getElementById("#a");
+var choiceB = document.getElementById("#b");
+var choiceC = document.getElementById("#c");
+var choiceD = document.getElementById("#d");
+
+// variables from initials box
+var initialsBox = document.getElementById("#initials-box");
+var yourScore = document.getElementById("#your-score");
+var initials = document.getElementById("#initials");
+var initialInput = document.getElementById("#enter-initials");
+var initialSubmitBtn = document.getElementById("#submit-initials");
+
+// variables from highscores.html
+var highScoresContainer = document.getElementById("results");
+var highScores = document.querySelector("#highscores");
+var UserScores = document.querySelector("#user-scores");
+var GoBackBtn = document.querySelector("#go-back");
+
 // this variable sets the timer to 100 seconds - giving 20 seconds per question
 var secondsLeft = 100;
-
-var highScore = document.querySelector("#highscore");
-// connects timer variable to the timer id on HTML
-var timer = document.querySelector("#timer");
-var startBtn = document.querySelector("#start-btn");
-var quizContainer = document.getElementById("quiz");
-var submitButton = document.getElementById("submit");
-var highScoresContainer = document.getElementById("results");
-
-// function showQuiz() {
-//     window.open("quiz.html")
-// }
-
-// startBtn.addEventListener("click", showQuiz);
 
 function setTime() {
     // setting function to decrease the seconds while displaying to user how many seconds are left
@@ -49,14 +58,17 @@ function setTime() {
 // message displayed once timer ends
 function sendMessage() {
     timer.textContent = "Your time is up!";
-    // send an alert that the quiz is now over & show highscore page
+    // send an alert that the quiz is now over & show initials box
 }
 
 //timer will start when press start button
 startBtn.addEventListener("click", setTime);
-//quiz eill start when press start button
+//quiz box will display when press start button
 startBtn.addEventListener("click", startQuiz);
 
+
+
+//this function will display & start quiz
 function startQuiz() {
     var currentQuestion = 0;
     var score = 0;
@@ -72,7 +84,7 @@ function startQuiz() {
 }
 
 
-
+// this function will bring the user to highscores page
 function showHighScores() {}
 
-submitButton.addEventListener("click", showHighScores);
+initialSubmitButton.addEventListener("click", showHighScores);
