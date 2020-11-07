@@ -46,8 +46,11 @@
         </section>
         <!-- Quiz Box Section-->
         <section id="quiz-box" style="display: none;">
-            <div id="questions"></div>
-            <div id="choices">
+            <div>
+                <p id="questions"></p>
+            </div>
+            <!-- quiz multiple choices -->
+            <div>
                 <button id="a" class="mc-bottons"></button>
                 <br>
                 <button id="b" class="mc-bottons"></button>
@@ -56,16 +59,17 @@
                 <br>
                 <button id="d" class="mc-bottons"></button>
             </div>
-            <div id="quiz-nav=btns">
-                <button id="back" type="button" class="nav-buttons" style="clear: both; display: block;">Back</button>
+            <!--quiz nav buttons -->
+            <div>
                 <button id="next" type="button" class="nav-buttons" style="clear: both; display: block;">Next</button>
                 <button id="submit-quiz" type="button" class="nav-buttons" style="display: none;">Submit</button>
             </div>
         </section>
         <!-- Add initials box Section -->
         <section id="initials-box" style="display: none;">
+            <h3>Game Over!</h3>
             <div id="your-score"></div>
-                <div id="initials">Enter Initials:</div>
+                <div>Enter Initials:</div>
                 <input id="enter-initials" type="text" placeholder="Enter your initials">
                 <br>
                 <button id="submit-initials" type="button" style="clear: both;">
