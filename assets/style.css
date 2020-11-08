@@ -54,20 +54,11 @@ hr {
     float: right;
 }
 
-#submit-initials {
+#submit-initials,
+#go-back {
     background-color: #c83434;
     color:white;
     margin: 20px;
-    width: 10%;
-}
-
-
-
-
-
-
-
-#go-back {
-    margin-top: 40px;
+    width: 15%;
     text-decoration: none;
 }

@@ -58,7 +58,6 @@ var initialInput = document.getElementById("enter-initials");
 var initialSubmitBtn = document.getElementById("submit-initials");
 
 // variables from highscores.html
-var highScoresContainer = document.getElementById("results");
 var highScores = document.querySelector("highscores");
 var userScores = document.querySelector("user-scores");
 var goBackBtn = document.querySelector("go-back");
