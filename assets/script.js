@@ -154,18 +154,17 @@ function showInitialBox() {
         quizBox.style.display = "none";
         initialsBox.style.display = "block"
     } 
+    // console.log("it works" + yourScore);
+    document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
-// this function saves the data to the local storage
+// // this function saves the data to the local storage
 function saveData() {
     var key = document.getElementById("myInput").value;
     var value = yourScore;
     localStorage.setItem(key, value);
-
-    document.getElementById("your-score").innerHTML = "Your Score: " + value;
+    
 }
-
-saveData();
 
 // ===================================================
 // EVENT LISTENERS
