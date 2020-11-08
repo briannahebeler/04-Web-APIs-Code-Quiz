@@ -12,7 +12,12 @@
     text-align: center;
 }
 
-hr {
+h1,
+p {
+    color:white;
+}
+
+.hr {
     background-color: white;
     margin-top: 60px;
 }
@@ -24,23 +29,37 @@ hr {
     margin-top: 60px;
 }
 
-.choices-buttons {
-    font-size: 20px;
-    font-weight: bold;
+#questions {
+    font-size: 30px;
+}
+
+hr {
+    background-color: white;
+    margin-top: 30px;
+}
+
+.mc-buttons {
+    background-color: #c83434;
+    color:white;
+    margin: 20px;
     width: 25%;
 }
+
+.nav-btn {
+    color: black;
+    background-color: white;
+    width: 10%;
+    float: right;
+}
+
+
+
+
+
+
+
 
 #go-back {
     margin-top: 40px;
     text-decoration: none;
-}
-
-.mc-buttons {
-    
-}
-
-h1,
-p,
-hr {
-    color:white;
 }

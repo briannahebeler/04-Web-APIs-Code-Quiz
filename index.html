@@ -20,7 +20,7 @@
         <!-- in the header we will store the navbar with link to highscores page & timer -->
         <nav class="navbar navbar-expand-lg" style="background-color: #070404";">
             <!-- creating Highscore button -->
-            <a class="navbar-brand" style="color:#c83434;" href="./highscores.html">Highscores</a>
+            <a class="navbar-brand" style="color:white;" href="./highscores.html">Highscores</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
             <!-- creating timer to show in navbar -->
             <div class="collapse navbar-collapse" id="navbarText">
                 <div class="navbar-nav ml-auto">
-                    <span class="navbar-text" id="timer"></span>
+                    <span class="navbar-text" style="color:white;" id="timer"></span>
                 </div>
             </div>
         </nav>
@@ -38,7 +38,7 @@
         <section id="jumbotron" class="jumbotron" style="display: block;">
             <h1 class="display-4">NJ Devils Trivia Quiz</h1>
             <p class="lead" style="padding-bottom: 20px;">Test your NJ Devils knowledge with the NJ Devils Trivia Quiz! In this timed quiz you will be presented with an array of questions. Every question you get right will earn you 100 points and every question you get wrong will lose you 10 seconds on the timer.</p>
-            <hr>
+            <hr class="hr">
             <button id="start-btn" type="button" class="btn">
                 Start Quiz!
             </button>
@@ -48,20 +48,22 @@
             <div>
                 <p id="questions"></p>
             </div>
+            <hr>
             <!-- quiz multiple choices -->
             <div>
-                <button id="a" class="mc-bottons"></button>
+                <button id="a" type="button" class="btn mc-buttons"></button>
                 <br>
-                <button id="b" class="mc-bottons"></button>
+                <button id="b" type="button" class="btn mc-buttons"></button>
                 <br>
-                <button id="c" class="mc-bottons"></button>
+                <button id="c" type="button" class="btn mc-buttons"></button>
                 <br>
-                <button id="d" class="mc-bottons"></button>
+                <button id="d" type="button" class="btn mc-buttons"></button>
             </div>
+            <hr>
             <!--quiz nav buttons -->
             <div>
-                <button id="next" type="button" class="nav-buttons" style="clear: both; display: block;">Next</button>
-                <button id="submit-quiz" type="button" class="nav-buttons" style="display: none;">Submit</button>
+                <button id="next" type="button" class="nav-btn btn" style="display: block;">Next</button>
+                <button id="submit-quiz" type="button" class="nav-btn btn" style="display: none;">Submit</button>
             </div>
         </section>
         <!-- Add initials box Section -->

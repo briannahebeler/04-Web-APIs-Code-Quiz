@@ -4,35 +4,35 @@
 
 // array of questions for quiz
 var questions = [
-    { q: "This will be the first question?", 
-    a: "a",
-    b: "b",
-    c: "c",
-    d: "d",
+    { q: "How many Stanley Cups have the NJ Devils won?", 
+    a: "Four",
+    b: "One",
+    c: "None",
+    d: "Three",
     correctAnswer: "d"},
-    { q: "This will be the second question?", 
-    a: "10",
-    b: "11",
-    c: "12",
-    d: "13",
+    { q: "What rule was invented just because of NJ Devil goalie, Martin Brodeur?", 
+    a: "Trapezoid Rule",
+    b: "Icing Rule",
+    c: "Goalie Interference Rule",
+    d: "Offsides Rule",
     correctAnswer: "a"},
-    { q: "This will be the third question?",
-    a: "ab",
-    b: "bc",
-    c: "cd",
-    d: "de",
+    { q: "Who is the youngest person to ever be added to the NJ Devils team?",
+    a: "Jesper Bratt",
+    b: "Nico Hischer",
+    c: "Elias Pettersson",
+    d: "Ty Smith",
     correctAnswer: "b"},
-    { q: "This will be the fourth question?",
-    a: "first",
-    b: "second",
-    c: "third",
-    d: "fourth",
+    { q: "When were the NJ Devils added as an official team of the NHL?",
+    a: "1917",
+    b: "1982",
+    c: "1968",
+    d: "1995",
     correctAnswer: "b"},
-    { q: "This will be the fifth question?",
-    a: "dog",
-    b: "cat",
-    c: "bird",
-    d: "frog",
+    { q: "Who is the leading point-getter in NJ Devils history?",
+    a: "Taylor Hall",
+    b: "Wayne Gretzky",
+    c: "Patrik Elias",
+    d: "John Maclean",
     correctAnswer: "c"},
 ];
 
@@ -82,21 +82,11 @@ var index = 0;
 // ===================================================
 
 function startQuiz() {
-    //this function will display quiz box
-    function showQuizBox() {
-        if (jumbo.style.display === "block" && quizBox.style.display === "none") {
-            jumbo.style.display = "none";
-            quizBox.style.display = "block";
-        }
-        displayQuestions();
-    };
-    //call function
     showQuizBox();
-
     // decrease the seconds while displaying to user how many seconds are left
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        timer.textContent = "Time: " + secondsLeft + " seconds left"
+        timer.textContent = secondsLeft + " seconds left"
 
         // once timer gets to zero the timer is cleared & a message will be displayed
         if(secondsLeft <= 0) {
@@ -112,6 +102,15 @@ function startQuiz() {
     }, 1000) 
 }
 
+//this function will display quiz box
+function showQuizBox() {
+    if (jumbo.style.display === "block" && quizBox.style.display === "none") {
+        jumbo.style.display = "none";
+        quizBox.style.display = "block";
+    }
+    displayQuestions();
+};
+
 function displayQuestions() {
     displayQuest.textContent = questions[index].q;
     choiceA.textContent = questions[index].a;
@@ -121,13 +120,13 @@ function displayQuestions() {
 };
 
 function nextQuestion() {
+    checkAnswer();
     index++;
     if (index === questions.length - 1) {
         nextBtn.style.display = "none";
         submitQuizBtn.style.display = "block";
     }
     displayQuestions();
-    checkAnswer();
 }
 
 // i will use this function to check user answer to actual answer
@@ -148,7 +147,7 @@ function checkAnswer() {
     console.log(yourScore);
 }
 
-console.log("it works" + yourScore);
+// console.log("it works" + yourScore);
 
 //this function will display initial box
 function showInitialBox() {
