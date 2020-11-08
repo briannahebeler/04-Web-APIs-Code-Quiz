@@ -1,3 +1,6 @@
+// ===================================================
+// VARIABLES
+// ===================================================
 // array of questions for quiz
 var questions = [
     { q: "This will be the first question?", 
@@ -37,8 +40,6 @@ var timer = document.querySelector("#timer");
 var jumbo = document.querySelector("#jumbotron");
 var startBtn = document.querySelector("#start-btn");
 
-var index = 0;
-
 //variables from quiz box
 var quizBox = document.getElementById("quiz-box");
 var displayQuestions = document.getElementById("questions");
@@ -61,18 +62,23 @@ var highScores = document.querySelector("highscores");
 var userScores = document.querySelector("user-scores");
 var goBackBtn = document.querySelector("go-back");
 
+//JS created variables
 // this variable sets the timer to 100 seconds - giving 20 seconds per question
 var secondsLeft = 10;
-
 //current question that will display
 var currentQuestion = 0;
 //keep track of score
 var score = 0;
 //count number of answers inputed
 var counter = 0;
-
+//used to track users answers
 var userAnswer;
+//used to keep track of questions 
+var index = 0;
 
+// ===================================================
+// FUNCTIONS
+// ===================================================
 function setTime() {
     showQuizBox();
     // setting function to decrease the seconds while displaying to user how many seconds are left
@@ -86,7 +92,7 @@ function setTime() {
             sendMessage();
             showInitialBox();
         }
-        
+
         // message displayed once timer ends
         function sendMessage() {
             timer.textContent = "Your time is up!";
@@ -161,6 +167,7 @@ function saveData(event) {
 
 };
 
+// ===================================================
 // EVENT LISTENERS
 // ====================================================
 //timer will start & quiz will display when press start button
