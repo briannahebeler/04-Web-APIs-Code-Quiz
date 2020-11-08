@@ -1,8 +1,27 @@
 #bg-img {
-    background-image: url(./images/njdevils.jpg);
+    background-image: url(./images/banner.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+}
+
+.jumbotron {
+    opacity: 90%;
+    background-color: #070404;
+    margin: 40px;
+    text-align: center;
+}
+
+hr {
+    background-color: white;
+    margin-top: 60px;
+}
+
+#start-btn {
+    background-color: #c83434;
+    color:white;
+    margin: 40px;
+    margin-top: 60px;
 }
 
 .choices-buttons {
@@ -18,4 +37,10 @@
 
 .mc-buttons {
     
+}
+
+h1,
+p,
+hr {
+    color:white;
 }
