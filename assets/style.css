@@ -28,6 +28,8 @@ h3 {
     color:white;
     margin: 40px;
     margin-top: 60px;
+    width: 20%;
+    font-size: 20px;
 }
 
 #questions {
@@ -52,6 +54,10 @@ hr {
     background-color: white;
     width: 10%;
     float: right;
+}
+
+#your-score {
+
 }
 
 #submit-initials,

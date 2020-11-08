@@ -54,7 +54,6 @@ var submitQuizBtn = document.getElementById("submit-quiz");
 // variables from initials box
 var initialsBox = document.getElementById("initials-box");
 var yourScore = document.getElementById("your-score");
-var initialInput = document.getElementById("enter-initials");
 var initialSubmitBtn = document.getElementById("submit-initials");
 
 // variables from highscores.html
@@ -142,11 +141,9 @@ function checkAnswer() {
     console.log("Counter: " + counter);
     console.log("Score: " + score);
 
+    // we need score to display on yourScore which is the id on initial section
     yourScore = score;
-    console.log(yourScore);
 }
-
-// console.log("it works" + yourScore);
 
 //this function will display initial box
 function showInitialBox() {
@@ -160,12 +157,13 @@ function showInitialBox() {
 }
 
 // this function saves the data to the local storage
-function saveData(event) {
-    event.preventDefault();
-    // var key = ""; this will be initials to get later
-    // var value = ""; this will be the score
-    // localStorage.setItem(key, value);
-};
+function saveData() {
+    var key = document.getElementById("myInput").value;
+    var value = yourScore;
+    localStorage.setItem(key, value);
+}
+
+saveData();
 
 // ===================================================
 // EVENT LISTENERS
@@ -179,6 +177,9 @@ submitQuizBtn.addEventListener("click", showInitialBox)
 
 //during the quiz, when next button is clicked it will go to next question
 nextBtn.addEventListener("click", nextQuestion);
+
+//when user presses button to submit initials it will run savedata function
+initialSubmitBtn.addEventListener("click", saveData);
 
 
 //listens for multiple choice options
