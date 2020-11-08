@@ -1,6 +1,7 @@
 // ===================================================
 // VARIABLES
 // ===================================================
+
 // array of questions for quiz
 var questions = [
     { q: "This will be the first question?", 
@@ -42,7 +43,7 @@ var startBtn = document.querySelector("#start-btn");
 
 //variables from quiz box
 var quizBox = document.getElementById("quiz-box");
-var displayQuestions = document.getElementById("questions");
+var displayQuest = document.getElementById("questions");
 var choiceA = document.getElementById("a");
 var choiceB = document.getElementById("b");
 var choiceC = document.getElementById("c");
@@ -64,7 +65,7 @@ var goBackBtn = document.querySelector("go-back");
 
 //JS created variables
 // this variable sets the timer to 100 seconds - giving 20 seconds per question
-var secondsLeft = 10;
+var secondsLeft = 100;
 //current question that will display
 var currentQuestion = 0;
 //keep track of score
@@ -79,9 +80,20 @@ var index = 0;
 // ===================================================
 // FUNCTIONS
 // ===================================================
-function setTime() {
+
+function startQuiz() {
+    //this function will display quiz box
+    function showQuizBox() {
+        if (jumbo.style.display === "block" && quizBox.style.display === "none") {
+            jumbo.style.display = "none";
+            quizBox.style.display = "block";
+        }
+        displayQuestions();
+    };
+    //call function
     showQuizBox();
-    // setting function to decrease the seconds while displaying to user how many seconds are left
+
+    // decrease the seconds while displaying to user how many seconds are left
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = "Time: " + secondsLeft + " seconds left"
@@ -91,37 +103,30 @@ function setTime() {
             clearInterval(timerInterval);
             sendMessage();
             showInitialBox();
-        }
+        };
 
         // message displayed once timer ends
         function sendMessage() {
             timer.textContent = "Your time is up!";
-        }
+        };
     }, 1000) 
 }
 
-//this function will display quiz box
-function showQuizBox() {
-    if (jumbo.style.display === "block" && quizBox.style.display === "none") {
-        jumbo.style.display = "none";
-        quizBox.style.display = "block";
-    }
-    startQuiz();
-}
-function startQuiz () {
-    displayQuestions.textContent = questions[index].q;
+function displayQuestions() {
+    displayQuest.textContent = questions[index].q;
     choiceA.textContent = questions[index].a;
     choiceB.textContent = questions[index].b;
     choiceC.textContent = questions[index].c;
     choiceD.textContent = questions[index].d;
-}
+};
+
 function nextQuestion() {
     index++;
     if (index === questions.length - 1) {
         nextBtn.style.display = "none";
         submitQuizBtn.style.display = "block";
     }
-    startQuiz();
+    displayQuestions();
     checkAnswer();
 }
 
@@ -159,21 +164,21 @@ function showInitialBox() {
 // this function saves the data to the local storage
 function saveData(event) {
     event.preventDefault();
-
     // var key = ""; this will be initials to get later
     // var value = ""; this will be the score
-
     // localStorage.setItem(key, value);
-
 };
 
 // ===================================================
 // EVENT LISTENERS
 // ====================================================
+
 //timer will start & quiz will display when press start button
-startBtn.addEventListener("click", setTime);
+startBtn.addEventListener("click", startQuiz);
+
 //when press submit quiz button it will display initial box
 submitQuizBtn.addEventListener("click", showInitialBox)
+
 //during the quiz, when next button is clicked it will go to next question
 nextBtn.addEventListener("click", nextQuestion);
 
@@ -191,4 +196,5 @@ choiceC.addEventListener("click", function() {
 choiceD.addEventListener("click", function() {
     userAnswer = "d";
 })
+
 // ===================================================
