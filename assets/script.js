@@ -62,7 +62,7 @@ var userScores = document.querySelector("user-scores");
 var goBackBtn = document.querySelector("go-back");
 
 // this variable sets the timer to 100 seconds - giving 20 seconds per question
-var secondsLeft = 100;
+var secondsLeft = 10;
 
 //current question that will display
 var currentQuestion = 0;
@@ -74,24 +74,25 @@ var counter = 0;
 var userAnswer;
 
 function setTime() {
+    showQuizBox();
     // setting function to decrease the seconds while displaying to user how many seconds are left
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = "Time: " + secondsLeft + " seconds left"
-// once timer gets to zero the timer is cleared & a message will be displayed
-        if(secondsLeft === 0) {
+
+        // once timer gets to zero the timer is cleared & a message will be displayed
+        if(secondsLeft <= 0) {
             clearInterval(timerInterval);
             sendMessage();
+            showInitialBox();
         }
-    }, 1000)
+        
+        // message displayed once timer ends
+        function sendMessage() {
+            timer.textContent = "Your time is up!";
+        }
+    }, 1000) 
 }
-
-// message displayed once timer ends
-function sendMessage() {
-    timer.textContent = "Your time is up!";
-    // send an alert that the quiz is now over & show initials box
-}
-
 
 //this function will display quiz box
 function showQuizBox() {
@@ -100,9 +101,7 @@ function showQuizBox() {
         quizBox.style.display = "block";
     }
     startQuiz();
-
 }
-
 function startQuiz () {
     displayQuestions.textContent = questions[index].q;
     choiceA.textContent = questions[index].a;
@@ -110,36 +109,40 @@ function startQuiz () {
     choiceC.textContent = questions[index].c;
     choiceD.textContent = questions[index].d;
 }
-
 function nextQuestion() {
     index++;
-
     if (index === questions.length - 1) {
         nextBtn.style.display = "none";
         submitQuizBtn.style.display = "block";
     }
-
     startQuiz();
     checkAnswer();
-
 }
 
 // i will use this function to check user answer to actual answer
 function checkAnswer() {
     console.log("User Answer: " + userAnswer);
     console.log("Correct Answer: " + questions[index].correctAnswer);
-    
+
     if (userAnswer === questions[index].correctAnswer) {
         counter++;
         score += 100;
+    } else {
+        secondsLeft -= 10;
     }
-
     console.log("Counter: " + counter);
     console.log("Score: " + score);
+
+    yourScore = score;
+    console.log(yourScore);
 }
 
+console.log("it works" + yourScore);
+
 //this function will display initial box
-function showInitialBox () {
+function showInitialBox() {
+    checkAnswer();
+
     if (jumbo.style.display === "none" && quizBox.style.display === "block" && initialsBox.style.display === "none") {
         jumbo.style.display = "none";
         quizBox.style.display = "none";
@@ -147,16 +150,26 @@ function showInitialBox () {
     } 
 }
 
+// this function saves the data to the local storage
+function saveData(event) {
+    event.preventDefault();
+
+    // var key = ""; this will be initials to get later
+    // var value = ""; this will be the score
+
+    // localStorage.setItem(key, value);
+
+};
+
 // EVENT LISTENERS
 // ====================================================
-//timer will start when press start button
+//timer will start & quiz will display when press start button
 startBtn.addEventListener("click", setTime);
-//quiz box will display when press start button
-startBtn.addEventListener("click", showQuizBox);
 //when press submit quiz button it will display initial box
 submitQuizBtn.addEventListener("click", showInitialBox)
 //during the quiz, when next button is clicked it will go to next question
 nextBtn.addEventListener("click", nextQuestion);
+
 
 //listens for multiple choice options
 choiceA.addEventListener("click", function() {
@@ -171,4 +184,4 @@ choiceC.addEventListener("click", function() {
 choiceD.addEventListener("click", function() {
     userAnswer = "d";
 })
-// ====================================================
+// ===================================================
