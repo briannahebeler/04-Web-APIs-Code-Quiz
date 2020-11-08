@@ -13,7 +13,8 @@
 }
 
 h1,
-p {
+p,
+h3 {
     color:white;
 }
 
@@ -31,6 +32,7 @@ p {
 
 #questions {
     font-size: 30px;
+    color: white;
 }
 
 hr {
@@ -52,6 +54,12 @@ hr {
     float: right;
 }
 
+#submit-initials {
+    background-color: #c83434;
+    color:white;
+    margin: 20px;
+    width: 10%;
+}
 
 
 
