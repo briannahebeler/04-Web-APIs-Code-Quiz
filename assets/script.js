@@ -161,6 +161,8 @@ function saveData() {
     var key = document.getElementById("myInput").value;
     var value = yourScore;
     localStorage.setItem(key, value);
+
+    document.getElementById("your-score").innerHTML = "Your Score: " + value;
 }
 
 saveData();

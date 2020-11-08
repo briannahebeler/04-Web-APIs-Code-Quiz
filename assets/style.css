@@ -14,7 +14,8 @@
 
 h1,
 p,
-h3 {
+h3,
+h4 {
     color:white;
 }
 
@@ -54,10 +55,6 @@ hr {
     background-color: white;
     width: 10%;
     float: right;
-}
-
-#your-score {
-
 }
 
 #submit-initials,
