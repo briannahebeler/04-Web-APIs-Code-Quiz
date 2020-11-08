@@ -1,3 +1,10 @@
+#bg-img {
+    background-image: url(./images/njdevils.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 .choices-buttons {
     font-size: 20px;
     font-weight: bold;
