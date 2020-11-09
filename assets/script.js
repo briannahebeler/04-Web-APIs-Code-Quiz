@@ -59,8 +59,8 @@ var initialSubmitBtn = document.getElementById("submit-initials");
 var goBackBtn = document.querySelector("go-back");
 
 //JS created variables
-// this variable sets the timer to 100 seconds - giving 20 seconds per question
-var secondsLeft = 100;
+// this variable sets the timer
+var secondsLeft = 50;
 //current question that will display
 var currentQuestion = 0;
 //keep track of score
@@ -88,7 +88,7 @@ function startQuiz() {
             sendMessage();
             showInitialBox();
         };
-    }, 1000) 
+    }, 1000); 
 }
 
 // message displayed once timer ends
@@ -101,7 +101,7 @@ function showQuizBox() {
     if (jumbo.style.display === "block" && quizBox.style.display === "none") {
         jumbo.style.display = "none";
         quizBox.style.display = "block";
-    }
+    };
     displayQuestions();
 };
 
@@ -137,17 +137,20 @@ function checkAnswer() {
     console.log("Counter: " + counter);
     console.log("Score: " + score);
 
-    if (userAnswer === questions[questions.length - 1].correctAnswer || userAnswer !== questions[questions.length - 1].correctAnswer) {
-        secondsLeft = 0;
-    }
-
     // we need score to display on yourScore which is the id on initial section
     yourScore = score;
 }
 
+function timerToZero() {
+    secondsLeft = 0;
+}
+
 //this function will display initial box
 function showInitialBox() {
+    // no matter which order i call these functions it displays an extra 100 points
+    // timerToZero();
     checkAnswer();
+    // timerToZero();
 
     if (jumbo.style.display === "none" && quizBox.style.display === "block" && initialsBox.style.display === "none") {
         jumbo.style.display = "none";
@@ -164,15 +167,14 @@ function saveData() {
     var value = yourScore;
     localStorage.setItem(key, value);
     
-    displayHighscores();
+    // displayHighscores();
 }
 
 
 
-function displayHighscores() {
-    console.log("do you see this?");
-    var storage = window.localStorage;
-    console.log(storage);
+// function displayHighscores() {
+//     console.log("do you see this?");
+    // console.log(window.localStorage);
     // for (var key in storage) {
     //     var initialKey = storage[key];
     //     console.log(initialKey);
@@ -183,7 +185,7 @@ function displayHighscores() {
     //     value = localStorage.getItem(key);
     //     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
     // };
-}
+// }
 
 // ===================================================
 // EVENT LISTENERS
