@@ -173,38 +173,58 @@ function showInitialBox() {
     document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
-// var storageArray = [];
+// var highScores = [];
 // // this function saves the data to the local storage
 function saveData() {
-    var key = document.getElementById("myInput").value;
-    var value = yourScore;
+    var userName = document.getElementById("myInput").value;
+    var userScore = yourScore;
+    // localStorage.setItem(key, value);
+    // highScores.push(key + ": " + value);
+    // localStorage.setItem("highScores", highScores);
 
-    localStorage.setItem(key, value);
+    //bcs psuedocode
+    // *check localStorage for highScores key
+    // *if it exists we need to do the following
+    //   *pull it out of local storage, add the current user/score
+    //   *stringify it, and put the whole thing back in localStorage
+    // *if it does not exist (first time game is played)
+    //   *create an object structured like this
+    //    const highScores = {userName: userScore}
+    //   *stringify it, and save to localStorage
 
-    // storageArray.push(key + ": " + value);
-    // localStorage.setItem("array", storageArray);
+        if (window.localStorage.highScores) {
+            console.log("its here");
+            window.localStorage.getItem('highScores');
+            highScores.push(JSON.stringify({userName: userScore}));
+            localStorage.setItem("highScores", highScores);
+        } else {
+            console.log("its not here");
+            const highScores = JSON.stringify({userName: userScore});
+            localStorage.setItem("highScores", highScores);
+        }
 }
 
 
 function displayHighScores() {
-    // var userInitialsHS = $("#user-initials");
-    // var userScoresHS = $("#user-scores");
 
-    document.getElementById("user-initials").innerHTML = "You can see me";
-    document.getElementById("user-scores").innerHTML = "You can see me";
+//     // var userInitialsHS = $("#user-initials");
+//     // var userScoresHS = $("#user-scores");
+
+//     document.getElementById("user-initials").innerHTML = "You can see me";
+//     document.getElementById("user-scores").innerHTML = "You can see me";
     
-    console.log(window.localStorage);
+    // console.log(window.localStorage);
 
-    // for (var key in storage) {
-    //     var initialKey = storage[key];
-    //     console.log(initialKey);
-    // } //shows storage not defined
+//     // for (var key in storage) {
+//     //     var initialKey = storage[key];
+//     //     console.log(initialKey);
+//     // } //shows storage not defined
 
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     key = localStorage.key(i);
-    //     value = localStorage.getItem(key);
-    //     document.querySelector("user-scores").innerHTML = localStorage.getItem("briheb");
-    // }; //showing the key is not defined ... tried getting item by var and by keyname of local storage
+//     // for (let i = 0; i < localStorage.length; i++) {
+//     //     key = localStorage.key(i);
+//     //     value = localStorage.getItem(key);
+//     //     document.querySelector("user-scores").innerHTML = localStorage.getItem("briheb");
+//     // }; //showing the key is not defined ... tried getting item by var and by keyname of local storage
 }
 
 // ===================================================
