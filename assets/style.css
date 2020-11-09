@@ -1,67 +1,76 @@
 #bg-img {
-    background-image: url(./images/banner.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+  background-image: url(./images/banner.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .jumbotron {
-    opacity: 90%;
-    background-color: #070404;
-    margin: 40px;
-    text-align: center;
+  opacity: 90%;
+  background-color: #070404;
+  margin: 40px;
+  text-align: center;
 }
 
 h1,
 p,
 h3,
 h4 {
-    color:white;
+  color: white;
 }
 
 .hr {
-    background-color: white;
-    margin-top: 60px;
+  background-color: white;
+  margin-top: 60px;
 }
 
 #start-btn {
-    background-color: #c83434;
-    color:white;
-    margin: 40px;
-    margin-top: 60px;
-    width: 20%;
-    font-size: 20px;
+  background-color: #c83434;
+  color: white;
+  margin: 40px;
+  margin-top: 60px;
+  width: 20%;
+  font-size: 20px;
 }
 
 #questions {
-    font-size: 30px;
-    color: white;
+  font-size: 30px;
+  color: white;
 }
 
 hr {
-    background-color: white;
-    margin-top: 30px;
+  background-color: white;
+  margin-top: 30px;
 }
 
 .mc-buttons {
-    background-color: #c83434;
-    color:white;
-    margin: 20px;
-    width: 25%;
+  background-color: #c83434;
+  color: white;
+  margin: 20px;
+  width: 25%;
 }
 
 .nav-btn {
-    color: black;
-    background-color: white;
-    width: 10%;
-    float: right;
+  color: black;
+  background-color: white;
+  width: 10%;
+  float: right;
 }
 
 #submit-initials,
 #go-back {
-    background-color: #c83434;
-    color:white;
-    margin: 20px;
-    width: 15%;
-    text-decoration: none;
+  background-color: #c83434;
+  color: white;
+  margin: 20px;
+  width: 15%;
+  text-decoration: none;
+}
+
+.hr-hs {
+  margin: 30px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
 }

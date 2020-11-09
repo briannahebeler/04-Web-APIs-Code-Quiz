@@ -1,3 +1,4 @@
+$(document).ready(function () {
 // ===================================================
 // VARIABLES
 // ===================================================
@@ -53,7 +54,7 @@ var startBtn = document.querySelector("#start-btn");
 
 //variables from quiz box
 var quizBox = document.getElementById("quiz-box");
-var displayQuest = document.getElementById("questions");
+var displayQuest = document.getElementById("display-questions");
 var choiceA = document.getElementById("a");
 var choiceB = document.getElementById("b");
 var choiceC = document.getElementById("c");
@@ -176,14 +177,14 @@ function saveData() {
     var key = document.getElementById("myInput").value;
     var value = yourScore;
     localStorage.setItem(key, value);
-
-    // displayHighscores();
 }
 
+var userInitialsHS = $("#user-initials");
+var userScoresHS = $("#user-scores");
 
-
-// function displayHighscores() {
-//     console.log("do you see this?");
+function displayHighsScores() {
+    // document.getElementById("user-initials").innerHTML = "You can see me";
+    console.log("do you see this?");
 // console.log(window.localStorage);
 // for (var key in storage) {
 //     var initialKey = storage[key];
@@ -195,14 +196,15 @@ function saveData() {
 //     value = localStorage.getItem(key);
 //     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
 // };
-// }
+}
 
 // ===================================================
 // EVENT LISTENERS
 // ====================================================
 
-//timer will start & quiz will display when press start button
+// this if statement makes sure that these event listeners are only being looked for on the index.html
 if (startBtn) {
+    //timer will start & quiz will display when press start button
     startBtn.addEventListener("click", startQuiz);
     //quiz box will display when clicked the showquizbox
     startBtn.addEventListener("click", showQuizBox);
@@ -231,6 +233,9 @@ if (startBtn) {
         userAnswer = "d";
     })
 };
-
+if ($("<title>").text === "Highscores") {
+    displayHighScores();
+    }
 
 // ===================================================
+});
