@@ -66,8 +66,8 @@ var submitQuizBtn = document.getElementById("submit-quiz");
 var initialsBox = document.getElementById("initials-box");
 var initialSubmitBtn = document.getElementById("submit-initials");
 
-// variables from highscores.html
-var goBackBtn = document.querySelector("go-back");
+//variables from hs page
+var goBackBtn = document.getElementById("go-back");
 
 //JS created variables
 // this variable sets the timer
@@ -82,6 +82,7 @@ var counter = 0;
 var userAnswer;
 //used to keep track of questions 
 var index = 0;
+
 
 // ===================================================
 // FUNCTIONS
@@ -172,30 +173,38 @@ function showInitialBox() {
     document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
+// var storageArray = [];
 // // this function saves the data to the local storage
 function saveData() {
     var key = document.getElementById("myInput").value;
     var value = yourScore;
+
     localStorage.setItem(key, value);
+
+    // storageArray.push(key + ": " + value);
+    // localStorage.setItem("array", storageArray);
 }
 
-var userInitialsHS = $("#user-initials");
-var userScoresHS = $("#user-scores");
 
-function displayHighsScores() {
-    // document.getElementById("user-initials").innerHTML = "You can see me";
-    console.log("do you see this?");
-// console.log(window.localStorage);
-// for (var key in storage) {
-//     var initialKey = storage[key];
-//     console.log(initialKey);
-// }
+function displayHighScores() {
+    // var userInitialsHS = $("#user-initials");
+    // var userScoresHS = $("#user-scores");
 
-// for (let i = 0; i < localStorage.length; i++) {
-//     key = localStorage.key(i);
-//     value = localStorage.getItem(key);
-//     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
-// };
+    document.getElementById("user-initials").innerHTML = "You can see me";
+    document.getElementById("user-scores").innerHTML = "You can see me";
+    
+    console.log(window.localStorage);
+
+    // for (var key in storage) {
+    //     var initialKey = storage[key];
+    //     console.log(initialKey);
+    // } //shows storage not defined
+
+    // for (let i = 0; i < localStorage.length; i++) {
+    //     key = localStorage.key(i);
+    //     value = localStorage.getItem(key);
+    //     document.querySelector("user-scores").innerHTML = localStorage.getItem("briheb");
+    // }; //showing the key is not defined ... tried getting item by var and by keyname of local storage
 }
 
 // ===================================================
@@ -233,9 +242,11 @@ if (startBtn) {
         userAnswer = "d";
     })
 };
-if ($("<title>").text === "Highscores") {
+
+//used to get highscores page to see js page
+if (goBackBtn) {
     displayHighScores();
-    }
+}
 
 // ===================================================
 });
