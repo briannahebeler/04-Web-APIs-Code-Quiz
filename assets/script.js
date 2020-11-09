@@ -4,36 +4,46 @@
 
 // array of questions for quiz
 var questions = [
-    { q: "How many Stanley Cups have the NJ Devils won?", 
-    a: "Four",
-    b: "One",
-    c: "None",
-    d: "Three",
-    correctAnswer: "d"},
-    { q: "What rule was invented just because of NJ Devil goalie, Martin Brodeur?", 
-    a: "Trapezoid Rule",
-    b: "Icing Rule",
-    c: "Goalie Interference Rule",
-    d: "Offsides Rule",
-    correctAnswer: "a"},
-    { q: "Who is the youngest person to ever be added to the NJ Devils team?",
-    a: "Jesper Bratt",
-    b: "Nico Hischer",
-    c: "Elias Pettersson",
-    d: "Ty Smith",
-    correctAnswer: "b"},
-    { q: "When were the NJ Devils added as an official team of the NHL?",
-    a: "1917",
-    b: "1982",
-    c: "1968",
-    d: "1995",
-    correctAnswer: "b"},
-    { q: "Who is the leading point-getter in NJ Devils history?",
-    a: "Taylor Hall",
-    b: "Wayne Gretzky",
-    c: "Patrik Elias",
-    d: "John Maclean",
-    correctAnswer: "c"},
+    {
+        q: "How many Stanley Cups have the NJ Devils won?",
+        a: "Four",
+        b: "One",
+        c: "None",
+        d: "Three",
+        correctAnswer: "d"
+    },
+    {
+        q: "What rule was invented just because of NJ Devil goalie, Martin Brodeur?",
+        a: "Trapezoid Rule",
+        b: "Icing Rule",
+        c: "Goalie Interference Rule",
+        d: "Offsides Rule",
+        correctAnswer: "a"
+    },
+    {
+        q: "Who is the youngest person to ever be added to the NJ Devils team?",
+        a: "Jesper Bratt",
+        b: "Nico Hischer",
+        c: "Elias Pettersson",
+        d: "Ty Smith",
+        correctAnswer: "b"
+    },
+    {
+        q: "When were the NJ Devils added as an official team of the NHL?",
+        a: "1917",
+        b: "1982",
+        c: "1968",
+        d: "1995",
+        correctAnswer: "b"
+    },
+    {
+        q: "Who is the leading point-getter in NJ Devils history?",
+        a: "Taylor Hall",
+        b: "Wayne Gretzky",
+        c: "Patrik Elias",
+        d: "John Maclean",
+        correctAnswer: "c"
+    },
 ];
 
 // variables from index.html
@@ -78,17 +88,17 @@ var index = 0;
 
 function startQuiz() {
     // decrease the seconds while displaying to user how many seconds are left
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left"
 
         // once timer gets to zero the timer is cleared & a message will be displayed
-        if(secondsLeft <= 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             sendMessage();
             showInitialBox();
         };
-    }, 1000); 
+    }, 1000);
 }
 
 // message displayed once timer ends
@@ -156,7 +166,7 @@ function showInitialBox() {
         jumbo.style.display = "none";
         quizBox.style.display = "none";
         initialsBox.style.display = "block"
-    } 
+    }
     // console.log("it works" + yourScore);
     document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
@@ -166,7 +176,7 @@ function saveData() {
     var key = document.getElementById("myInput").value;
     var value = yourScore;
     localStorage.setItem(key, value);
-    
+
     // displayHighscores();
 }
 
@@ -174,17 +184,17 @@ function saveData() {
 
 // function displayHighscores() {
 //     console.log("do you see this?");
-    // console.log(window.localStorage);
-    // for (var key in storage) {
-    //     var initialKey = storage[key];
-    //     console.log(initialKey);
-    // }
+// console.log(window.localStorage);
+// for (var key in storage) {
+//     var initialKey = storage[key];
+//     console.log(initialKey);
+// }
 
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     key = localStorage.key(i);
-    //     value = localStorage.getItem(key);
-    //     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
-    // };
+// for (let i = 0; i < localStorage.length; i++) {
+//     key = localStorage.key(i);
+//     value = localStorage.getItem(key);
+//     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
+// };
 // }
 
 // ===================================================
@@ -192,33 +202,35 @@ function saveData() {
 // ====================================================
 
 //timer will start & quiz will display when press start button
-startBtn.addEventListener("click", startQuiz);
+if (startBtn) {
+    startBtn.addEventListener("click", startQuiz);
+    //quiz box will display when clicked the showquizbox
+    startBtn.addEventListener("click", showQuizBox);
 
-//quiz box will display when clicked the showquizbox
-startBtn.addEventListener("click", showQuizBox);
+    //when press submit quiz button it will display initial box
+    submitQuizBtn.addEventListener("click", showInitialBox)
 
-//when press submit quiz button it will display initial box
-submitQuizBtn.addEventListener("click", showInitialBox)
+    //during the quiz, when next button is clicked it will go to next question
+    nextBtn.addEventListener("click", nextQuestion);
 
-//during the quiz, when next button is clicked it will go to next question
-nextBtn.addEventListener("click", nextQuestion);
-
-//when user presses button to submit initials it will run savedata function
-initialSubmitBtn.addEventListener("click", saveData);
+    //when user presses button to submit initials it will run savedata function
+    initialSubmitBtn.addEventListener("click", saveData);
 
 
-//listens for multiple choice options
-choiceA.addEventListener("click", function() {
-    userAnswer = "a";
-})
-choiceB.addEventListener("click", function() {
-    userAnswer = "b";
-})
-choiceC.addEventListener("click", function() {
-    userAnswer = "c";
-})
-choiceD.addEventListener("click", function() {
-    userAnswer = "d";
-})
+    //listens for multiple choice options
+    choiceA.addEventListener("click", function () {
+        userAnswer = "a";
+    })
+    choiceB.addEventListener("click", function () {
+        userAnswer = "b";
+    })
+    choiceC.addEventListener("click", function () {
+        userAnswer = "c";
+    })
+    choiceD.addEventListener("click", function () {
+        userAnswer = "d";
+    })
+};
+
 
 // ===================================================
