@@ -53,12 +53,9 @@ var submitQuizBtn = document.getElementById("submit-quiz");
 
 // variables from initials box
 var initialsBox = document.getElementById("initials-box");
-var yourScore = document.getElementById("your-score");
 var initialSubmitBtn = document.getElementById("submit-initials");
 
 // variables from highscores.html
-var highScores = document.querySelector("highscores");
-var userScores = document.querySelector("user-scores");
 var goBackBtn = document.querySelector("go-back");
 
 //JS created variables
@@ -80,7 +77,6 @@ var index = 0;
 // ===================================================
 
 function startQuiz() {
-    showQuizBox();
     // decrease the seconds while displaying to user how many seconds are left
     var timerInterval = setInterval(function() {
         secondsLeft--;
@@ -92,13 +88,13 @@ function startQuiz() {
             sendMessage();
             showInitialBox();
         };
-
-        // message displayed once timer ends
-        function sendMessage() {
-            timer.textContent = "Your time is up!";
-        };
     }, 1000) 
 }
+
+// message displayed once timer ends
+function sendMessage() {
+    timer.textContent = "Your time is up!";
+};
 
 //this function will display quiz box
 function showQuizBox() {
@@ -127,7 +123,7 @@ function nextQuestion() {
     displayQuestions();
 }
 
-// i will use this function to check user answer to actual answer
+//will use this function to check user answer to actual answer
 function checkAnswer() {
     console.log("User Answer: " + userAnswer);
     console.log("Correct Answer: " + questions[index].correctAnswer);
@@ -140,6 +136,10 @@ function checkAnswer() {
     }
     console.log("Counter: " + counter);
     console.log("Score: " + score);
+
+    if (userAnswer === questions[questions.length - 1].correctAnswer || userAnswer !== questions[questions.length - 1].correctAnswer) {
+        secondsLeft = 0;
+    }
 
     // we need score to display on yourScore which is the id on initial section
     yourScore = score;
@@ -164,6 +164,25 @@ function saveData() {
     var value = yourScore;
     localStorage.setItem(key, value);
     
+    displayHighscores();
+}
+
+
+
+function displayHighscores() {
+    console.log("do you see this?");
+    var storage = window.localStorage;
+    console.log(storage);
+    // for (var key in storage) {
+    //     var initialKey = storage[key];
+    //     console.log(initialKey);
+    // }
+
+    // for (let i = 0; i < localStorage.length; i++) {
+    //     key = localStorage.key(i);
+    //     value = localStorage.getItem(key);
+    //     document.querySelector("user-scores").innerHTML = localStorage.getItem(key, value);
+    // };
 }
 
 // ===================================================
@@ -172,6 +191,9 @@ function saveData() {
 
 //timer will start & quiz will display when press start button
 startBtn.addEventListener("click", startQuiz);
+
+//quiz box will display when clicked the showquizbox
+startBtn.addEventListener("click", showQuizBox);
 
 //when press submit quiz button it will display initial box
 submitQuizBtn.addEventListener("click", showInitialBox)
