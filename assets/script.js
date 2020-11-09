@@ -178,44 +178,38 @@ function showInitialBox() {
 function saveData() {
     var userName = document.getElementById("myInput").value;
     var userScore = yourScore;
-    // localStorage.setItem(key, value);
-    // highScores.push(key + ": " + value);
-    // localStorage.setItem("highScores", highScores);
-
-    //bcs psuedocode
-    // *check localStorage for highScores key
-    // *if it exists we need to do the following
-    //   *pull it out of local storage, add the current user/score
-    //   *stringify it, and put the whole thing back in localStorage
-    // *if it does not exist (first time game is played)
-    //   *create an object structured like this
-    //    const highScores = {userName: userScore}
-    //   *stringify it, and save to localStorage
 
         if (window.localStorage.highScores) {
-            console.log("its here");
-            window.localStorage.getItem('highScores');
-            // highScores.push(JSON.stringify({userName: userScore})); didint work
-            highScores.userName = userScore; //didnt work
-            // highScores.JSON.stringify({userName: userScore}); didnt work
-            localStorage.setItem("highScores", highScores);
+            var highScores = JSON.parse(window.localStorage.getItem('highScores'));
+            highScores[userName] = userScore;
+            stringifiedHighscores = JSON.stringify(highScores)
+            localStorage.setItem("highScores", stringifiedHighscores);
         } else {
-            console.log("its not here");
-            const highScores = JSON.stringify({userName: userScore});
-            localStorage.setItem("highScores", highScores);
+            const highScores = {"userName": userScore}; //making this an empty var then un commenting the next line doesnt work either :(
+            // highScores[userName] = userScore; //using this just makes a second line appear
+            stringifiedHighscores = JSON.stringify(highScores)
+            localStorage.setItem("highScores", stringifiedHighscores);
         }
 }
 
 
 function displayHighScores() {
+    // var userInitialsHS = $("#user-initials");
+    // var userScoresHS = $("#user-scores");
 
-//     // var userInitialsHS = $("#user-initials");
-//     // var userScoresHS = $("#user-scores");
-
-//     document.getElementById("user-initials").innerHTML = "You can see me";
-//     document.getElementById("user-scores").innerHTML = "You can see me";
+    var test = "You can see me testing"
     
-    // console.log(window.localStorage);
+    console.log(window.localStorage.highScores);
+    var highScores = JSON.parse(window.localStorage.getItem('highScores'));
+    console.log(highScores);
+    stringifiedHighscores = JSON.stringify(highScores)
+    console.log(stringifiedHighscores);
+
+    document.getElementById("user-initials").innerHTML = test;
+    document.getElementById("user-scores").innerHTML = stringifiedHighscores;
+
+
+
 
 //     // for (var key in storage) {
 //     //     var initialKey = storage[key];
