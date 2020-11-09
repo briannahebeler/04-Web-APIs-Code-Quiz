@@ -195,7 +195,9 @@ function saveData() {
         if (window.localStorage.highScores) {
             console.log("its here");
             window.localStorage.getItem('highScores');
-            highScores.push(JSON.stringify({userName: userScore}));
+            // highScores.push(JSON.stringify({userName: userScore})); didint work
+            highScores.userName = userScore; //didnt work
+            // highScores.JSON.stringify({userName: userScore}); didnt work
             localStorage.setItem("highScores", highScores);
         } else {
             console.log("its not here");
