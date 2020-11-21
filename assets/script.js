@@ -68,7 +68,6 @@ var initialSubmitBtn = document.getElementById("submit-initials");
 
 //variables from hs page
 var goBackBtn = document.getElementById("go-back");
-// const appendHere = document.getElementById("append-here");
 
 //JS created variables
 // this variable sets the timer
@@ -154,15 +153,9 @@ function checkAnswer() {
     yourScore = score;
 }
 
-// function timerToZero() {
-//     secondsLeft = 0;
-// }
-
 //this function will display initial box
 function showInitialBox() {
-    // timerToZero();
     checkAnswer();
-    // timerToZero();
 
     if (jumbo.style.display === "none" && quizBox.style.display === "block" && initialsBox.style.display === "none") {
         jumbo.style.display = "none";
@@ -187,29 +180,22 @@ function saveData() {
     localStorage.setItem("userInitials", JSON.stringify(savedInitials));
 }
 
-// const userInitials = document.getElementByClass("user-initials");
-// const userScores = document.getElementByClass("user-scores");
-
+// this function displays the highscores from local storage onto the dynamically created highscore table
 function displayHighScores() {
     savedScores = JSON.parse(localStorage.getItem("userScore"));
     savedInitials = JSON.parse(localStorage.getItem("userInitials"));
 
     for (var i = 0; i < savedInitials.length; i++) {
         var tableRow = $("<tr>").addClass("row" + i);
-        // var tableRow = $("<tr>").addClass("row");
-
         var userInitials = $("<td>").addClass("user-initials").text(JSON.parse(localStorage.getItem("userInitials"))[i]);
-        // console.log(JSON.parse(localStorage.getItem("userInitials"))[i]);
-
         var userScore = $("<td>").addClass("user-scores").text(JSON.parse(localStorage.getItem("userScore"))[i]);
-        // console.log(JSON.parse(localStorage.getItem("userScore"))[i]);
 
         tableRow.append(userInitials, userScore);
-        $("#append-here").append(tableRow);
+        $("#hsData").append(tableRow);
     }
 }
 
-// ===================================================  `1
+// =================================================== 
 // EVENT LISTENERS
 // ====================================================
 

@@ -24,6 +24,11 @@ h4 {
   margin-top: 60px;
 }
 
+hr {
+  background-color: white;
+  margin-top: 30px;
+}
+
 #start-btn {
   background-color: #c83434;
   color: white;
@@ -38,10 +43,6 @@ h4 {
   color: white;
 }
 
-hr {
-  background-color: white;
-  margin-top: 30px;
-}
 
 .mc-buttons {
   background-color: #c83434;
