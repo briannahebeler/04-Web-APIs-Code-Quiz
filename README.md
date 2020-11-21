@@ -14,4 +14,4 @@ After the game is over the user will be prompted to enter their initials to save
 ## Screenshot
 
 ## Link
-https://briannahebeler.github.io/Homework04-Web-APIs-Code-Quiz/
+https://briannahebeler.github.io/NJ-Devils-Quiz/
