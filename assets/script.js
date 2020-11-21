@@ -83,6 +83,9 @@ var userAnswer;
 //used to keep track of questions 
 var index = 0;
 
+var savedInitials = [];
+var savedScores = [];
+
 
 // ===================================================
 // FUNCTIONS
@@ -153,13 +156,12 @@ function checkAnswer() {
     yourScore = score;
 }
 
-function timerToZero() {
-    secondsLeft = 0;
-}
+// function timerToZero() {
+//     secondsLeft = 0;
+// }
 
 //this function will display initial box
 function showInitialBox() {
-    // no matter which order i call these functions it displays an extra 100 points
     // timerToZero();
     checkAnswer();
     // timerToZero();
@@ -169,68 +171,25 @@ function showInitialBox() {
         quizBox.style.display = "none";
         initialsBox.style.display = "block"
     }
-    // console.log("it works" + yourScore);
+
     document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
+    //push your score to saved scores array
+    savedScores.push(yourScore);
+    localStorage.setItem("userScore", savedScores);
 }
 
-// var highScores = [];
 // // this function saves the data to the local storage
 function saveData() {
-    var userName = document.getElementById("myInput").value;
-    var userScore = yourScore;
-    // var user = 0;
-    // var highScoresObject;
-    // highScoresObject[userName] = userScore
-    // localStorage.setItem('highScoresObject', JSON.stringify(highScoresObject));
-
-        if (window.localStorage.highScores) {
-            // user++;
-            var highScores = JSON.parse(window.localStorage.getItem('highScores'));
-            highScores[userName] = userScore;
-            stringifiedHighscores = JSON.stringify(highScores)
-            localStorage.setItem("highScores", stringifiedHighscores);
-        } else {
-            // user++;
-            // const highScores = {1: userName + "- " + userScore};
-            const highScores = {userName: userScore}; //making this an empty var then un commenting the next line doesnt work either :(
-            // highScores[userName] = userScore; //using this just makes a second line appear
-            stringifiedHighscores = JSON.stringify(highScores)
-            localStorage.setItem("highScores", stringifiedHighscores);
-            // var highScoresObject;
-            // highScoresObject[userName] = userScore
-            // localStorage.setItem('highScoresObject', JSON.stringify(highScoresObject));
-        }
+    var enteredInitials = document.getElementById("myInput").value;
+    savedInitials.push(enteredInitials);
+    document.localStorage.setItem("userInitials", savedInitials);
 }
 
+// const userInitials = document.getElementById("user-initials");
+// const userScores = document.getElementById("user-scores");
 
 function displayHighScores() {
-    // var userInitialsHS = $("#user-initials");
-    // var userScoresHS = $("#user-scores");
 
-    var test = "You can see me testing"
-    
-    console.log(window.localStorage.highScores);
-    var highScores = JSON.parse(window.localStorage.getItem('highScores'));
-    console.log(highScores);
-    stringifiedHighscores = JSON.stringify(highScores)
-    console.log(stringifiedHighscores);
-
-    document.getElementById("user-initials").innerHTML = test;
-    document.getElementById("user-scores").innerHTML = stringifiedHighscores;
-
-
-
-
-//     // for (var key in storage) {
-//     //     var initialKey = storage[key];
-//     //     console.log(initialKey);
-//     // } //shows storage not defined
-
-//     // for (let i = 0; i < localStorage.length; i++) {
-//     //     key = localStorage.key(i);
-//     //     value = localStorage.getItem(key);
-//     //     document.querySelector("user-scores").innerHTML = localStorage.getItem("briheb");
-//     // }; //showing the key is not defined ... tried getting item by var and by keyname of local storage
 }
 
 // ===================================================
