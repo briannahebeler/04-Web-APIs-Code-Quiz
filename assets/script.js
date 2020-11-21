@@ -178,17 +178,27 @@ function showInitialBox() {
 function saveData() {
     var userName = document.getElementById("myInput").value;
     var userScore = yourScore;
+    // var user = 0;
+    // var highScoresObject;
+    // highScoresObject[userName] = userScore
+    // localStorage.setItem('highScoresObject', JSON.stringify(highScoresObject));
 
         if (window.localStorage.highScores) {
+            // user++;
             var highScores = JSON.parse(window.localStorage.getItem('highScores'));
             highScores[userName] = userScore;
             stringifiedHighscores = JSON.stringify(highScores)
             localStorage.setItem("highScores", stringifiedHighscores);
         } else {
-            const highScores = {"userName": userScore}; //making this an empty var then un commenting the next line doesnt work either :(
+            // user++;
+            // const highScores = {1: userName + "- " + userScore};
+            const highScores = {userName: userScore}; //making this an empty var then un commenting the next line doesnt work either :(
             // highScores[userName] = userScore; //using this just makes a second line appear
             stringifiedHighscores = JSON.stringify(highScores)
             localStorage.setItem("highScores", stringifiedHighscores);
+            // var highScoresObject;
+            // highScoresObject[userName] = userScore
+            // localStorage.setItem('highScoresObject', JSON.stringify(highScoresObject));
         }
 }
 
