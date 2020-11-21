@@ -11,7 +11,18 @@ Once the timer reaches 0 or the user answers all the questions and presses "subm
 After the game is over the user will be prompted to enter their initials to save their score in the high score library.
 
 
-## Screenshot
+## Screenshots of Application  
+The start page is where the user will read the directions and start the game.
+![](./assets/images/startPage.png)  
+
+Once the game is started the timer will start and user will be presented with their first question.
+![](./assets/images/questions.png)  
+
+Once the timer ends or the user answers all the questions, they will be prompted to enter their initials.
+![](./assets/images/initialScreen.png)  
+
+After the user saves their initials, they will be located to the highscores page where they can see how they did compared to other players.
+![](./assets/images/highscores.png)  
 
 ## Link
 https://briannahebeler.github.io/NJ-Devils-Trivia-Quiz/
