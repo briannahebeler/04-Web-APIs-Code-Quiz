@@ -1,4 +1,4 @@
-# NJ Devils Quiz
+# NJ Devils Trivia Quiz
 
 ## Description
 
@@ -14,4 +14,4 @@ After the game is over the user will be prompted to enter their initials to save
 ## Screenshot
 
 ## Link
-https://briannahebeler.github.io/NJ-Devils-Quiz/
+https://briannahebeler.github.io/NJ-Devils-Trivia-Quiz/
