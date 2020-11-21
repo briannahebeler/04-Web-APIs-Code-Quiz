@@ -170,21 +170,18 @@ function showInitialBox() {
         initialsBox.style.display = "block"
     }
     $("#your-score").text("Your Score: " + yourScore);
-    // document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
 
-// this function data to local storage
+// this function saves data to local storage
 function saveData() {
     //SAVING SCORE//
     var savedScores = JSON.parse(localStorage.getItem("userScore")) || [];
     savedScores.push(yourScore);
     localStorage.setItem("userScore", JSON.stringify(savedScores));
 
-
     //SAVING INITIALS//
     var enteredInitials = $("#myInput").val();
-
     var savedInitials = JSON.parse(localStorage.getItem("userInitials")) || [];
     savedInitials.push(enteredInitials);
     localStorage.setItem("userInitials", JSON.stringify(savedInitials));
@@ -194,20 +191,22 @@ function saveData() {
 // const userScores = document.getElementByClass("user-scores");
 
 function displayHighScores() {
+    savedScores = JSON.parse(localStorage.getItem("userScore"));
+    savedInitials = JSON.parse(localStorage.getItem("userInitials"));
 
-    // for (var i = 0; i < savedInitials.length; i++) {
-        // var tableRow = $("<tr>").addClass("row" + i);
-        var tableRow = $("<tr>").addClass("row");
+    for (var i = 0; i < savedInitials.length; i++) {
+        var tableRow = $("<tr>").addClass("row" + i);
+        // var tableRow = $("<tr>").addClass("row");
 
-        var userInitials = $("<td>").addClass("user-initials").text(localStorage.getItem("userInitials"));
-        console.log(localStorage.getItem("userInitials"));
+        var userInitials = $("<td>").addClass("user-initials").text(JSON.parse(localStorage.getItem("userInitials"))[i]);
+        // console.log(JSON.parse(localStorage.getItem("userInitials"))[i]);
 
-        var userScore = $("<td>").addClass("user-scores").text(localStorage.getItem("userScore"));
-        console.log(localStorage.getItem("userScore"));
+        var userScore = $("<td>").addClass("user-scores").text(JSON.parse(localStorage.getItem("userScore"))[i]);
+        // console.log(JSON.parse(localStorage.getItem("userScore"))[i]);
 
         tableRow.append(userInitials, userScore);
         $("#append-here").append(tableRow);
-    // }
+    }
 }
 
 // ===================================================  `1
