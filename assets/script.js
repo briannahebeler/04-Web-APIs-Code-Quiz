@@ -173,22 +173,21 @@ function showInitialBox() {
     // document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
-var savedInitials = [];
-var savedScores = [];
 
 // this function data to local storage
 function saveData() {
-
-    //SAVING SCORE//push your score to saved scores array, then save array to LS
+    //SAVING SCORE//
+    var savedScores = JSON.parse(localStorage.getItem("userScore")) || [];
     savedScores.push(yourScore);
-    localStorage.setItem("userScore", savedScores);
+    localStorage.setItem("userScore", JSON.stringify(savedScores));
 
 
     //SAVING INITIALS//
-    // var enteredInitials = document.getElementById("myInput").value;
     var enteredInitials = $("#myInput").val();
+
+    var savedInitials = JSON.parse(localStorage.getItem("userInitials")) || [];
     savedInitials.push(enteredInitials);
-    localStorage.setItem("userInitials", savedInitials);
+    localStorage.setItem("userInitials", JSON.stringify(savedInitials));
 }
 
 // const userInitials = document.getElementByClass("user-initials");
