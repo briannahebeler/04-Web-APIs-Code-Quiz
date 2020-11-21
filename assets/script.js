@@ -68,6 +68,7 @@ var initialSubmitBtn = document.getElementById("submit-initials");
 
 //variables from hs page
 var goBackBtn = document.getElementById("go-back");
+// const appendHere = document.getElementById("append-here");
 
 //JS created variables
 // this variable sets the timer
@@ -168,8 +169,8 @@ function showInitialBox() {
         quizBox.style.display = "none";
         initialsBox.style.display = "block"
     }
-
-    document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
+    $("#your-score").text("Your Score: " + yourScore);
+    // document.getElementById("your-score").innerHTML = "Your Score: " + yourScore;
 }
 
 var savedInitials = [];
@@ -184,28 +185,33 @@ function saveData() {
 
 
     //SAVING INITIALS//
-    var enteredInitials = document.getElementById("myInput").value;
+    // var enteredInitials = document.getElementById("myInput").value;
+    var enteredInitials = $("#myInput").val();
     savedInitials.push(enteredInitials);
     localStorage.setItem("userInitials", savedInitials);
 }
 
-const userInitials = document.getElementById("user-initials");
-const userScores = document.getElementById("user-scores");
+// const userInitials = document.getElementByClass("user-initials");
+// const userScores = document.getElementByClass("user-scores");
 
 function displayHighScores() {
 
     // for (var i = 0; i < savedInitials.length; i++) {
-        userInitials.innerHTML = localStorage.getItem("userInitials");
-        console.log(localStorage.getItem("userInitials"));
-    // }
+        // var tableRow = $("<tr>").addClass("row" + i);
+        var tableRow = $("<tr>").addClass("row");
 
-    // for (var i = 0; i < savedScores.length; i++) {
-        userScores.innerHTML = localStorage.getItem("userScore");
+        var userInitials = $("<td>").addClass("user-initials").text(localStorage.getItem("userInitials"));
+        console.log(localStorage.getItem("userInitials"));
+
+        var userScore = $("<td>").addClass("user-scores").text(localStorage.getItem("userScore"));
         console.log(localStorage.getItem("userScore"));
+
+        tableRow.append(userInitials, userScore);
+        $("#append-here").append(tableRow);
     // }
 }
 
-// ===================================================
+// ===================================================  `1
 // EVENT LISTENERS
 // ====================================================
 
