@@ -83,6 +83,8 @@ var userAnswer;
 //used to keep track of questions 
 var index = 0;
 
+var timerInterval;
+
 
 // ===================================================
 // FUNCTIONS
@@ -90,7 +92,7 @@ var index = 0;
 
 function startQuiz() {
     // decrease the seconds while displaying to user how many seconds are left
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left"
 
@@ -151,10 +153,14 @@ function checkAnswer() {
 
     // we need score to display on yourScore which is the id on initial section
     yourScore = score;
+
+    userAnswer = null;
 }
 
 //this function will display initial box
 function showInitialBox() {
+    clearInterval(timerInterval);
+    sendMessage();
     checkAnswer();
 
     if (jumbo.style.display === "none" && quizBox.style.display === "block" && initialsBox.style.display === "none") {
@@ -165,30 +171,26 @@ function showInitialBox() {
     $("#your-score").text("Your Score: " + yourScore);
 }
 
-
 // this function saves data to local storage
 function saveData() {
     //SAVING SCORE//
-    var savedScores = JSON.parse(localStorage.getItem("userScore")) || [];
-    savedScores.push(yourScore);
-    localStorage.setItem("userScore", JSON.stringify(savedScores));
-
-    //SAVING INITIALS//
+    var savedScores = JSON.parse(localStorage.getItem("highScores")) || [];
     var enteredInitials = $("#myInput").val();
-    var savedInitials = JSON.parse(localStorage.getItem("userInitials")) || [];
-    savedInitials.push(enteredInitials);
-    localStorage.setItem("userInitials", JSON.stringify(savedInitials));
+    savedScores.push([enteredInitials, yourScore]);
+    localStorage.setItem("highScores", JSON.stringify(savedScores));
+
 }
 
 // this function displays the highscores from local storage onto the dynamically created highscore table
 function displayHighScores() {
-    savedScores = JSON.parse(localStorage.getItem("userScore"));
-    savedInitials = JSON.parse(localStorage.getItem("userInitials"));
-
-    for (var i = 0; i < savedInitials.length; i++) {
+    savedScores = JSON.parse(localStorage.getItem("highScores"));
+    savedScores.sort(function (a, b) {return b[1] - a[1]});
+    console.log(savedScores);
+    for (var i = 0; i < savedScores.length; i++) {
+        console.log(savedScores[i]);
         var tableRow = $("<tr>").addClass("row" + i);
-        var userInitials = $("<td>").addClass("user-initials").text(JSON.parse(localStorage.getItem("userInitials"))[i]);
-        var userScore = $("<td>").addClass("user-scores").text(JSON.parse(localStorage.getItem("userScore"))[i]);
+        var userInitials = $("<td>").addClass("user-initials").text(savedScores[i][0]);
+        var userScore = $("<td>").addClass("user-scores").text(savedScores[i][1]);
 
         tableRow.append(userInitials, userScore);
         $("#hsData").append(tableRow);
