@@ -173,6 +173,7 @@ function showInitialBox() {
 
 // this function saves data to local storage
 function saveData() {
+    window.location.assign("./highscores.html");
     //SAVING SCORE//
     var savedScores = JSON.parse(localStorage.getItem("highScores")) || [];
     var enteredInitials = $("#myInput").val();
@@ -216,7 +217,6 @@ if (startBtn) {
 
     //when user presses button to submit initials it will run savedata function
     initialSubmitBtn.addEventListener("click", saveData);
-
 
     //listens for multiple choice options
     choiceA.addEventListener("click", function () {
