@@ -1,4 +1,5 @@
 # NJ Devils Trivia Quiz
+![MIT](https://img.shields.io/badge/license-MIT-blueviolet)
 
 ## Description
 
@@ -13,16 +14,26 @@ After the game is over the user will be prompted to enter their initials to save
 
 ## Screenshots of Application  
 The start page is where the user will read the directions and start the game.
-![](./assets/images/startPage.png)  
+![](./public/assets/images/startPage.png)  
 
 Once the game is started the timer will start and user will be presented with their first question.
-![](./assets/images/questions.png)  
+![](./public/assets/images/questions.png)  
 
 Once the timer ends or the user answers all the questions, they will be prompted to enter their initials.
-![](./assets/images/initialScreen.png)  
+![](./public/assets/images/initialScreen.png)  
 
 After the user saves their initials, they will be located to the highscores page where they can see how they did compared to other players.
-![](./assets/images/highscores.png)  
+![](./public/assets/images/highscores.png)  
+
+## License
+This project is licensed under the MIT license.
+
+## Contributing
+To contribute to this project you can fork this GitHub repository.
+
+## Questions
+If you have any additional questions about this application you can reach out to me at briannahebeler@gmail.com.
+You can check out some of my other projects at briannahebeler (https://github.com/briannahebeler).
 
 ## Link
 https://briannahebeler.github.io/NJ-Devils-Trivia-Quiz/
